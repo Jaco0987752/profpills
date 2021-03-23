@@ -8,25 +8,45 @@
 <body>
 <?php
 require('db.php');
-if (isset($_REQUEST['username'])){
-	$username = stripslashes($_REQUEST['username']);
-	$username = mysqli_real_escape_string($con,$username); 
-	$email = stripslashes($_REQUEST['email']);
-	$email = mysqli_real_escape_string($con,$email);
-	$password = stripslashes($_REQUEST['password']);
-	$password = mysqli_real_escape_string($con,$password);
-	$trn_date = date("Y-m-d H:i:s");
+
+// name or email already taken.
+$taken = false;
+$loggedIn = isset($_REQUEST['username']);
+
+  if ($loggedIn) {
+    $username = stripslashes($_REQUEST['username']);
+    $username = mysqli_real_escape_string($con, $username);
+    $email = stripslashes($_REQUEST['email']);
+    $email = mysqli_real_escape_string($con, $email);
+    $password = stripslashes($_REQUEST['password']);
+    $password = mysqli_real_escape_string($con, $password);
+    $trn_date = date("Y-m-d H:i:s");
+
+    $query = "SELECT * FROM `users` WHERE username='$username' or '$email'";
+    $result = mysqli_query($con, $query) or die(mysql_error());
+    $rows = mysqli_num_rows($result);
+
+    if ($rows > 0) {
+        $taken = true;
+    } else {
         $query = "INSERT into `users` (username, password, email, trn_date) VALUES ('$username', '".password_hash($password, PASSWORD_DEFAULT)."', '$email', '$trn_date')";
-        $result = mysqli_query($con,$query);
-        if($result){
+        $result = mysqli_query($con, $query);
+        if ($result) {
             echo "<div class='form'>
-<h3>You are registered successfully.</h3>
-<br/>Click here to <a href='login.php'>Login</a></div>";
+      <h3>You are registered successfully.</h3>
+      <br/>Click here to <a href='login.php'>Login</a></div>";
         }
-    }else{
+    }
+  }
+if(! $loggedIn or $taken){
 ?>
 	<form class="login" action="" method="post">
     <h1 class="login-title">Register | ProfessionalPills</h1>
+<?php if ($taken){ ?>
+  <p class="login-lost">username or email taken. </p>
+
+  <?php } ?>
+
 		<input type="text" class="login-input" name="username" placeholder="Username" required />
     <input type="text" class="login-input" name="email" placeholder="Email Adress">
     <input type="password" class="login-input" name="password" placeholder="Password">
