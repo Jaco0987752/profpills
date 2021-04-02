@@ -7,7 +7,7 @@
 <body>
 <?php
 // https://paragonie.com/blog/2015/04/fast-track-safe-and-secure-php-sessionsz
-require('db.php');
+require('../db.php');
 session_start();
 if (isset($_POST['username'])){
 	$username = stripslashes($_REQUEST['username']);
@@ -16,7 +16,8 @@ if (isset($_POST['username'])){
 	$password = mysqli_real_escape_string($con,$password);
 
         $query = "SELECT * FROM `users` WHERE username='$username'";
-		$result = mysqli_query($con,$query) or die(mysql_error());
+		
+		$result = mysqli_query($con,$query) or die(mysql_error());// rewrite to prepared
 		$rows = mysqli_num_rows($result);
 
         if($rows==1 && password_verify($password, $result->fetch_assoc()["password"])){

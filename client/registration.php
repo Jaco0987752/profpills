@@ -2,12 +2,12 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Registration | Webdevtrick.com</title>
+<title>Registration | professional pills</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <?php
-require('db.php');
+require('../db.php');
 
 // name or email already taken.
 $taken = false;

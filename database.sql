@@ -11,34 +11,23 @@ CREATE TABLE IF NOT EXISTS `clients` (
  `username` varchar(50) NOT NULL,
  `email` varchar(50) NOT NULL,
  `password` varchar(60) NOT NULL,
- `trn_date` datetime NOT NULL,
- `hospital` varchar(50),
- `approved` boolean,
+ `province` varchar(50),
+ `client_approved` boolean,
  `appointment` datetime,
  `vacinated` boolean, 
  `placebo` boolean,
+ `medical_history` varchar(100),
+ `research_data` varchar(100),
+ `vaccine_delivered` bool
 
  PRIMARY KEY (`id`)
  );
 
- CREATE TABLE IF NOT EXISTS `medics` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `username` varchar(50) NOT NULL,
- `email` varchar(50) NOT NULL,
- `password` varchar(50) NOT NULL,
- `trn_date` datetime NOT NULL,
- `hospital` varchar(50) NOT NULL,
- PRIMARY KEY (`id`)
+ -- noinspection SqlNoDataSourceInspection
+
+CREATE TABLE IF NOT EXISTS `hospitals`(
+    `hospital` varchar(50),
+    `province` varchar(50)
  );
 
-
-
- CREATE TABLE IF NOT EXISTS `R&D` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `username` varchar(50) NOT NULL,
- `email` varchar(50) NOT NULL,
- `password` varchar(50) NOT NULL,
- `trn_date` datetime NOT NULL,
-
- PRIMARY KEY (`id`)
- );
+ INSERT into `hospitals` VALUES (`ziekenhuis Amsterdam`, `noordholland`),(`ziekenhuis rotterdam`, `zuidholland` ),(`ziekenhuis Utrecht`, `Utrecht`);
