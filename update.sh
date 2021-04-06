@@ -11,4 +11,4 @@ sudo cp ./client/*.css /var/www/profpills/client/
 
 sudo cp ./API/*.php /var/www/profpills/API/
 sudo cp ./API/*.html /var/www/profpills/API/
-sudo cp ./API/*.css /var/www/profpills/API/
+sudo cp ./API/*.css /var/www/profpills/API/ 
