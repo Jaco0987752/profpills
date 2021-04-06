@@ -1,6 +1,6 @@
 <?php
 
-require('../db.php');
+require('./Helper/db.php');
 
 
 $stmt = mysqli_prepare($con,

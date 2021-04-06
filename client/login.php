@@ -7,7 +7,7 @@
 <body>
 <?php
 // https://paragonie.com/blog/2015/04/fast-track-safe-and-secure-php-sessionsz
-require('../db.php');
+require('./Helper/db.php');
 session_start();
 if (isset($_POST['username'])){
 	$username = stripslashes($_REQUEST['username']);

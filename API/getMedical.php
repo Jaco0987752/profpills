@@ -1,6 +1,6 @@
 <?php
 
-require('../db.php');
+require('./Helper/db.php');
 
 if(isset($_POST['username'])) {
     $username = stripslashes($_REQUEST['username']);
