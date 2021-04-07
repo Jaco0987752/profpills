@@ -22,7 +22,7 @@ $loggedIn = isset($_REQUEST['username']);
     $password = mysqli_real_escape_string($con, $password);
     $trn_date = date("Y-m-d H:i:s");
 
-    $query = "SELECT * FROM `users` WHERE username='$username' or email='$email'";
+    $query = "SELECT * FROM `clients` WHERE username='$username' or email='$email'";
     $result = mysqli_query($con, $query);
     $rows = mysqli_num_rows($result);
       echo "logged in";
@@ -31,7 +31,7 @@ $loggedIn = isset($_REQUEST['username']);
     }
     else
     {
-        $query = "INSERT into `users` (username, password, email, trn_date) VALUES ('$username', '".password_hash($password, PASSWORD_DEFAULT)."', '$email', '$trn_date')";
+        $query = "INSERT into `clients` (username, password, email) VALUES ('$username', '".password_hash($password, PASSWORD_DEFAULT)."', '$email')";
         $result = mysqli_query($con, $query);
         if ($result) {
             echo "<div class='form'>
@@ -40,9 +40,8 @@ $loggedIn = isset($_REQUEST['username']);
         }
     }
   }
-
-if(! $loggedIn or $taken){
 echo $loggedIn, $taken;
+if(! $loggedIn or $taken){
     ?>
 	<form class="login" action="" method="post">
     <h1 class="login-title">Register | ProfessionalPills</h1>
