@@ -21,13 +21,12 @@ $loggedIn = isset($_REQUEST['username']);
     $password = stripslashes($_REQUEST['password']);
     $password = mysqli_real_escape_string($con, $password);
     $trn_date = date("Y-m-d H:i:s");
-      echo "logged in";
 
     $query = "SELECT * FROM `users` WHERE username='$username' or email='$email'";
     $result = mysqli_query($con, $query) or die(mysql_error());
     $rows = mysqli_num_rows($result);
-
-    if ($rows > 0) {
+      echo "logged in";
+      if ($rows > 0) {
         $taken = true;
     }
     else
