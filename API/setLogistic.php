@@ -11,7 +11,7 @@ if(isset($_POST['id'])) {
         $vaccinated = mysqli_real_escape_string($con, $vaccinated);
 
         $stmt = mysqli_prepare($con,
-            "UPDATE `users` SET `vaccine_delivered` = ? WHERE id=?"
+            "UPDATE `client` SET `vaccine_delivered` = ? WHERE id=?"
         );
         $stmt->bind_param("ss", $vaccine_delivered,$id);
 

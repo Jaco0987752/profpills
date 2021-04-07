@@ -15,7 +15,7 @@ if (isset($_POST['username'])){
 	$password = stripslashes($_REQUEST['password']);
 	$password = mysqli_real_escape_string($con,$password);
 
-        $query = "SELECT * FROM `users` WHERE username='$username'";
+        $query = "SELECT * FROM `clients` WHERE username='$username'";
 		
 		$result = mysqli_query($con,$query) or die(mysql_error());// rewrite to prepared
 		$rows = mysqli_num_rows($result);

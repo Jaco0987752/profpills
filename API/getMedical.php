@@ -7,7 +7,7 @@ if(isset($_POST['username'])) {
     $username = mysqli_real_escape_string($con, $username);
 
     $stmt = mysqli_prepare($con,
-        "SELECT ( `province`,`medical_history`, `vacinated`, `appointment`) FROM `users` WHERE username=?"
+        "SELECT ( `province`,`medical_history`, `vacinated`, `appointment`) FROM `clients` WHERE username=?"
     );
     $stmt->bind_param("s", $username);
 

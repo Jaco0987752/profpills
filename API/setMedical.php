@@ -9,7 +9,7 @@ if(isset($_POST['username'])) {
         $vaccinated = mysqli_real_escape_string($con, $vaccinated);
 
         $stmt = mysqli_prepare($con,
-            "UPDATE `users` SET `vacinated` = ? WHERE username=?"
+            "UPDATE `client` SET `vacinated` = ? WHERE username=?"
         );
         $stmt->bind_param("ss", $vaccinated,$username);
 
@@ -21,7 +21,7 @@ if(isset($_POST['username'])) {
         $research_data = mysqli_real_escape_string($con, $research_data);
 
         $stmt = mysqli_prepare($con,
-            "UPDATE `users` SET `research_data` = ? WHERE username=?"
+            "UPDATE `client` SET `research_data` = ? WHERE username=?"
         );
         $stmt->bind_param("ss", $vaccinated,$username);
 
