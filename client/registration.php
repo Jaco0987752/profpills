@@ -14,7 +14,6 @@ $taken = false;
 $loggedIn = isset($_REQUEST['username']);
 
   if ($loggedIn) {
-      echo "logged in";
     $username = stripslashes($_REQUEST['username']);
     $username = mysqli_real_escape_string($con, $username);
     $email = stripslashes($_REQUEST['email']);
@@ -22,6 +21,7 @@ $loggedIn = isset($_REQUEST['username']);
     $password = stripslashes($_REQUEST['password']);
     $password = mysqli_real_escape_string($con, $password);
     $trn_date = date("Y-m-d H:i:s");
+      echo "logged in";
 
     $query = "SELECT * FROM `users` WHERE username='$username' or email='$email'";
     $result = mysqli_query($con, $query) or die(mysql_error());
