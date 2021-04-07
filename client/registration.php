@@ -14,6 +14,7 @@ $taken = false;
 $loggedIn = isset($_REQUEST['username']);
 
   if ($loggedIn) {
+      echo "logged in";
     $username = stripslashes($_REQUEST['username']);
     $username = mysqli_real_escape_string($con, $username);
     $email = stripslashes($_REQUEST['email']);
