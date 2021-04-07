@@ -14,11 +14,12 @@ CREATE TABLE IF NOT EXISTS `clients` (
  `province` varchar(50),
  `client_approved` boolean,
  `appointment` datetime,
- `vacinated` boolean, 
+ `vaccinated` boolean,
  `placebo` boolean,
  `medical_history` varchar(100),
  `research_data` varchar(100),
- `vaccine_delivered` bool
+ `vaccine_delivered` bool,
+  primary key(`id`)
  );
 
  -- noinspection SqlNoDataSourceInspection
