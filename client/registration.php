@@ -23,7 +23,7 @@ $loggedIn = isset($_REQUEST['username']);
     $trn_date = date("Y-m-d H:i:s");
 
     $query = "SELECT * FROM `users` WHERE username='$username' or email='$email'";
-    $result = mysqli_query($con, $query) or die(mysql_error());
+    $result = mysqli_query($con, $query);
     $rows = mysqli_num_rows($result);
       echo "logged in";
       if ($rows > 0) {
