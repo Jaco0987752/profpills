@@ -7,7 +7,7 @@
 </head>
 <body>
 <?php
-require('./Helper/db.php');
+require('./helper/db.php');
 
 // name or email already taken.
 $taken = false;

@@ -2,7 +2,7 @@
 
 // mag
 
-require('./Helper/db.php');
+require('./helper/db.php');
 if(isset($_POST['id'])) {
     $id = stripslashes($_REQUEST['id']);
     $id = mysqli_real_escape_string($con, $id);
