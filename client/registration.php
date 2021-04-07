@@ -22,7 +22,7 @@ $loggedIn = isset($_REQUEST['username']);
     $password = mysqli_real_escape_string($con, $password);
     $trn_date = date("Y-m-d H:i:s");
 
-    $query = "SELECT * FROM `users` WHERE username='$username' or '$email'";
+    $query = "SELECT * FROM `users` WHERE username='$username' or email='$email'";
     $result = mysqli_query($con, $query) or die(mysql_error());
     $rows = mysqli_num_rows($result);
 
@@ -47,7 +47,7 @@ if(! $loggedIn or $taken){
 
   <?php } ?>
 
-		<input type="text" class="login-input" name="username" placeholder="Username" required />
+    <input type="text" class="login-input" name="username" placeholder="Username" required />
     <input type="text" class="login-input" name="email" placeholder="Email Adress">
     <input type="password" class="login-input" name="password" placeholder="Password">
     <input type="submit" name="submit" value="Register" class="login-button">
