@@ -1,6 +1,6 @@
 <?php
-require('./Helper/db.php');
-include("./Helper/auth.php");
+require('./helper/db.php');
+require("./helper/auth.php");
 ?>
 <!DOCTYPE html>
 <html>

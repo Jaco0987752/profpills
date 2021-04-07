@@ -1,5 +1,5 @@
 <?php
-include("./Helper/auth.php");
+include("./helper/auth.php");
 ?>
 <!DOCTYPE html>
 <html>

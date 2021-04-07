@@ -19,8 +19,6 @@ CREATE TABLE IF NOT EXISTS `clients` (
  `medical_history` varchar(100),
  `research_data` varchar(100),
  `vaccine_delivered` bool
-
- PRIMARY KEY (`id`)
  );
 
  -- noinspection SqlNoDataSourceInspection
