@@ -29,4 +29,4 @@ CREATE TABLE IF NOT EXISTS `hospitals`(
     `province` varchar(50)
  );
 
- INSERT into `hospitals` VALUES (`ziekenhuis Amsterdam`, `noordholland`),(`ziekenhuis rotterdam`, `zuidholland` ),(`ziekenhuis Utrecht`, `Utrecht`);
+ INSERT into `hospitals` (`hospital`, `province`) VALUES (`ziekenhuis Amsterdam`, `noordholland`),(`ziekenhuis rotterdam`, `zuidholland` ),(`ziekenhuis Utrecht`, `Utrecht`);
