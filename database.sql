@@ -1,5 +1,5 @@
 CREATE DATABASE IF NOT EXISTS ProfessionalPills;
-create user 'ProfessionalPills'@'localhost'  identified by '1234567890';
+create user IF NOT EXISTS 'ProfessionalPills'@'localhost'  identified by '1234567890';
 grant all privileges on ProfessionalPills.* to  'ProfessionalPills'@'localhost';
 FLUSH PRIVILEGES;
 
