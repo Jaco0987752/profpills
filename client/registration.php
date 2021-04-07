@@ -28,18 +28,22 @@ $loggedIn = isset($_REQUEST['username']);
 
     if ($rows > 0) {
         $taken = true;
-    } else {
+    }
+    else
+    {
         $query = "INSERT into `users` (username, password, email, trn_date) VALUES ('$username', '".password_hash($password, PASSWORD_DEFAULT)."', '$email', '$trn_date')";
         $result = mysqli_query($con, $query);
         if ($result) {
             echo "<div class='form'>
-      <h3>You are registered successfully.</h3>
-      <br/>Click here to <a href='login.php'>Login</a></div>";
+            <h3>You are registered successfully.</h3>
+            <br/>Click here to <a href='login.php'>Login</a></div>";
         }
     }
   }
+
 if(! $loggedIn or $taken){
-?>
+echo $loggedIn, $taken;
+    ?>
 	<form class="login" action="" method="post">
     <h1 class="login-title">Register | ProfessionalPills</h1>
 <?php if ($taken){ ?>
