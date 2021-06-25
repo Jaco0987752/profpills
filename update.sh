@@ -9,5 +9,4 @@ sudo cp -r ./admin/* /var/www/profpills/admin/
 sudo mkdir /var/www/profpills/Helper/
 sudo cp -r ./Helper/*.php /var/www/profpills/Helper/
 
-
-sudo mysql -u root -e "./Helper/database.sql";
+sudo mysql -u root < ./Helper/database.sql
