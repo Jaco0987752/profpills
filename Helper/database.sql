@@ -1,5 +1,6 @@
 drop database IF EXISTS ProfessionalPills;
 create database ProfessionalPills;
+drop user 'ProfessionalPills'@'localhost';
 create user 'ProfessionalPills'@'localhost'  identified by '1234567890';
 grant all privileges on ProfessionalPills.* to  'ProfessionalPills'@'localhost';
 FLUSH PRIVILEGES;
