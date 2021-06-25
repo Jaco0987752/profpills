@@ -10,4 +10,4 @@ sudo mkdir /var/www/profpills/Helper/
 sudo cp -r ./Helper/*.php /var/www/profpills/Helper/
 
 
-
+mysql -u root -e "./Helper/database.sql";
