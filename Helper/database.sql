@@ -1,3 +1,4 @@
+drop database IF EXISTS ProfessionalPills;
 create database ProfessionalPills;
 create user 'ProfessionalPills'@'localhost'  identified by '1234567890';
 grant all privileges on ProfessionalPills.* to  'ProfessionalPills'@'localhost';
@@ -41,6 +42,12 @@ VALUES ('ziekenhuis Amsterdam', 'noordholland'),
        ('ziekenhuis Utrecht', 'Utrecht');
 
 INSERT INTO `appointments` (`hospital`, `date`, `time`)
-VALUES  ('ziekenhuis Amsterdam', '2022-11-11', '19:30:10'),
-        ('ziekenhuis Amsterdam', '2022-11-11', '19:30:10'),
-        ('ziekenhuis Amsterdam', '2022-11-11', '19:30:10');
+VALUES  (1, '2022-11-11', '19:30:10'),
+        (2, '2022-11-11', '19:30:10'),
+        (3, '2022-11-11', '19:30:10');
+        (1, '2022-11-11', '19:50:10'),
+        (2, '2022-11-11', '19:50:10'),
+        (3, '2022-11-11', '19:50:10');
+        (1, '2022-11-11', '19:70:10'),
+        (2, '2022-11-11', '19:70:10'),
+        (3, '2022-11-11', '19:70:10');
