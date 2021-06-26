@@ -20,7 +20,11 @@ CREATE TABLE IF NOT EXISTS `clients` (
     `placebo` boolean,
     `medical_history` varchar(100),
     `research_data` varchar(100),
-    `vaccine_delivered` boolean
+    `vaccine_delivered` boolean,
+    `birthday` date,
+    `telephone` varchar(50),
+    `address` varchar(50),
+    `residential_area` varchar(50)
     );
 
 CREATE TABLE IF NOT EXISTS `appointments` (

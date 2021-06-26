@@ -3,8 +3,9 @@
 require('./../Helper/db.php');
 
 $stmt = mysqli_prepare($con,
-   "SELECT `id`, `province`, `appointment` FROM `clients` WHERE `appointment` IS NOT NULL AND vaccinated = false"
+   "SELECT date, time, hospitals.hospital, hospitals.province FROM (`appointments` INNER JOIN hospitals ON hospitals.id = appointments.hospital)"
 );
+
 if($stmt == false){
     echo "failed to fetch from database";
     die();
@@ -12,7 +13,10 @@ if($stmt == false){
 /* execute query */
 $stmt->execute();
 /* bind result variables */
-$stmt->bind_result($id, $province, $vaccinated);
+$stmt->bind_result($date, $time, $hospital, $province);
 /* fetch value */
-$stmt->fetch();
-echo $id . $province . $vaccinated;
+
+echo "id, date, time, hospital, province<br>";
+while($stmt->fetch()){
+	echo $date .', '. $time .', '. $hospital .',' . $province ."<br>";
+}

@@ -41,6 +41,14 @@ if ($loggedIn) {
     $password = mysqli_real_escape_string($con, $password);
     $province = stripslashes($_REQUEST['province']);
     $province = mysqli_real_escape_string($con, $province);
+    $birthday = stripslashes($_REQUEST['birthday']);
+    $birthday = mysqli_real_escape_string($con, $birthday);
+    $telephone = stripslashes($_REQUEST['telephone']);
+    $telephone = mysqli_real_escape_string($con, $telephone);
+    $address = stripslashes($_REQUEST['address']);
+    $address = mysqli_real_escape_string($con, $address);
+    $residential_area = stripslashes($_REQUEST['residential_area']);
+    $residential_area = mysqli_real_escape_string($con, $residential_area);
 
     $query = "SELECT * FROM `clients` WHERE username='$username' or '$email'";
     $result = mysqli_query($con, $query) or die(mysql_error());
@@ -51,9 +59,9 @@ if ($loggedIn) {
     } else if (strlen($password) < 8) {
         $pwdTooShort = true;
     } else {
-        $query = "INSERT into `clients` (username, password, email, province, client_approved, vaccinated) 
+        $query = "INSERT into `clients` (username, password, email, province, client_approved, vaccinated, birthday, telephone, address, residential_area) 
         VALUES 
-        ('$username', '" . password_hash($password, PASSWORD_DEFAULT) . "', '$email', '$province', false, false)";
+        ('$username', '" . password_hash($password, PASSWORD_DEFAULT) . "', '$email', '$province', false, false, '$birthday', '$telephone', '$address', '$residential_area')";
 
         $result = mysqli_query($con, $query);
         if ($result) {
@@ -78,13 +86,17 @@ if (!$loggedIn or $taken or $pwdTooShort) {
             <p class="login-lost">password too short. </p>
 
         <?php } ?>
-        <input type="text" class="login-input" name="username" minlength="8" maxlength="30" placeholder="Username"
-               required/>
+        <input type="text" class="login-input" name="username" minlength="8" maxlength="30" placeholder="Username" required/>
         <input type="email" class="login-input" name="email" placeholder="Email Address">
         <input type="password" class="login-input" minlength="8" maxlength="30" name="password" placeholder="Password">
         <select class="login-input" name="province">
             <?php echo $provincesOptions;?>
         </select>
+        <input type="text" class="login-input" name="telephone" minlength="8" maxlength="30" placeholder="Telephone" required/>
+        <input type="text" class="login-input" name="address" minlength="8" maxlength="30" placeholder="address" required/>
+        <input type="text" class="login-input" name="residential_area" minlength="8" maxlength="30" placeholder="residential area " required/>
+        <label> birthdate</label>
+        <input type="date" name="birthday">
         <div>
             <input type="checkbox" required="true" class="login-checkbox" name="nationality">
             <Label class="label" >Nederlandse nationaliteit</Label>
