@@ -15,4 +15,4 @@ sudo rm /etc/apache2/sites-enabled/profpills.conf
 sudo cp apache.conf /etc/apache2/sites-enabled/profpills.conf
 
 apachctl configtest
-apache -k restart
+apache2 -k restart
