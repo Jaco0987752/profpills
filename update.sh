@@ -11,8 +11,8 @@ sudo cp -r ./Helper/*.php /var/www/profpills/Helper
 
 sudo mysql -u root < ./Helper/database.sql
 
-sudo rm /etc/apache2/sites-enabled/profpills.conf
-sudo cp apache.conf /etc/apache2/sites-enabled/profpills.conf
+sudo rm /etc/apache2/sites-available/profpills.conf
+sudo cp apache.conf /etc/apache2/sites-available/profpills.conf
 
 apachctl configtest
 apache2 -k restart
